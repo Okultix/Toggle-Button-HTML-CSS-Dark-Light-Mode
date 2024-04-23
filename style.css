@@ -1,0 +1,83 @@
+/* Reset default margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles for the body */
+body {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    background: #011706;
+}
+
+/* Styles for the checkbox */
+.checkbox {
+    height: 160px;
+    width: 320px;
+    background: #001809;
+    appearance: none;
+    border-radius: 160px;
+    box-shadow: inset 0 8px 60px rgba(0, 24, 6, 0.1),
+                inset 0 8px 8px rgba(7, 41, 1, 0.1),
+                inset 0 -4px 4px rgba(0, 36, 15, 0.1);
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+/* Styles for the checkbox circle */
+.checkbox::before {
+    height: 160px;
+    width: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: linear-gradient(to bottom,#023e26,#012d12);
+    border-radius: 160px;
+    transform: scale(0.9);
+    transition: 0.5s;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+                inset 4px 4px rgba(2, 129, 31, 0.2),
+                inset -4px 4px rgba(2, 104, 22, 0.2);
+}
+
+/* Styles for the checked state of the checkbox */
+.checkbox:checked {
+    background: #d2d2ca;
+    box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1),
+                inset 0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Styles for the checked state of the checkbox circle */
+.checkbox:checked::before {
+    left: 160px;
+    box-shadow: 0 8px 20px rgba(132, 133, 101, 0.1),
+                inset 4px 4px rgb(50, 50, 48),
+                inset -4px 4px rgb(169, 168, 149);
+    background: linear-gradient(to bottom,#bbbba9,#676658);
+}
+
+/* Styles for the background overlay */
+.checkbox::after {
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: #022d14;
+    top: 80px;
+    left: 160px;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+}
+
+/* Styles for the background overlay in the checked state */
+.checkbox:checked::after {
+    background: #f6fae1;
+}
